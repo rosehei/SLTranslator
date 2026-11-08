@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read reviews and share your experience with sworn translators in Sri Lanka. Verified feedback to help you choose the right translator.">
+  <title>Reviews | Sri Lanka Sworn Translators Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">⚖</span>
+        <span class="logo-text">Sworn Translators<span class="logo-sub">Sri Lanka</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="find-translator.html">Find a Translator</a></li>
+        <li><a href="document-samples.html">Document Samples</a></li>
+        <li><a href="verification.html">Verification</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Translator Reviews</h1>
+      <p>Read verified reviews from people who have used sworn translation services in Sri Lanka. Share your own experience to help others.</p>
+      <div class="gold-line"></div>
+    </div>
+  </div>
+
+  <!-- Reviews Display -->
+  <section class="section" style="padding-top: var(--space-xl);">
+    <div class="container">
+
+      <!-- Reviews Grid -->
+      <div class="reviews-grid fade-in" id="reviewsGrid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Ad Slot -->
+      <div class="ad-slot ad-slot-banner" style="margin-top: var(--space-2xl);">Advertisement Space</div>
+
+      <!-- Review Form -->
+      <div class="section-header fade-in" style="margin-top: var(--space-3xl);">
+        <h2>Submit a Review</h2>
+        <p>Share your experience to help others find the right translator. All reviews are moderated before publication.</p>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="review-form-card fade-in" style="max-width: 700px; margin: 0 auto;">
+        <form id="reviewForm">
+
+          <!-- Author Name -->
+          <div class="form-group">
+            <label class="form-label" for="reviewAuthor">Your Name *</label>
+            <input type="text" class="form-input" id="reviewAuthor" placeholder="Enter your full name" required>
+          </div>
+
+          <!-- Translator Selection -->
+          <div class="form-group">
+            <label class="form-label" for="reviewTranslator">Translator *</label>
+            <select class="form-select" id="reviewTranslator" required>
+              <option value="">Select a translator...</option>
+              <option value="P.M. Thilakarathne">P.M. Thilakarathne (1997/LL/PU/001)</option>
+              <option value="S.D. Cyril Sadanayake">S.D. Cyril Sadanayake (1977/LL/KL/001)</option>
+              <option value="D.A. Vincent">D.A. Vincent (1979/LL/CO/001)</option>
+              <option value="Premadasa D.">Premadasa D. (1983/LL/CO/026)</option>
+              <option value="Kurukulasuriya Patrick Peiris">Kurukulasuriya Patrick Peiris (1985/LL/CO/003)</option>
+              <option value="M.S.M Faiserdeen">M.S.M Faiserdeen (1989/LL/GA/001)</option>
+              <option value="L.A.L. Liyanaarachchi">L.A.L. Liyanaarachchi (1991/LL/CO/001)</option>
+              <option value="H.M.D.A. Herath">H.M.D.A. Herath (1992/LL/GA/001)</option>
+              <option value="Nadarajah Mohanamoorthy">Nadarajah Mohanamoorthy (1993/LL/BT/001)</option>
+              <option value="Navananthakumran N.">Navananthakumran N. (1993/LL/CO/008)</option>
+            </select>
+          </div>
+
+          <!-- Star Rating -->
+          <div class="form-group">
+            <label class="form-label">Rating *</label>
+            <div class="star-rating-input">
+              <input type="radio" name="rating" id="star5" value="5"><label for="star5" title="Excellent">★</label>
+              <input type="radio" name="rating" id="star4" value="4"><label for="star4" title="Very Good">★</label>
+              <input type="radio" name="rating" id="star3" value="3"><label for="star3" title="Good">★</label>
+              <input type="radio" name="rating" id="star2" value="2"><label for="star2" title="Fair">★</label>
+              <input type="radio" name="rating" id="star1" value="1"><label for="star1" title="Poor">★</label>
+            </div>
+          </div>
+
+          <!-- Review Text -->
+          <div class="form-group">
+            <label class="form-label" for="reviewText">Your Review *</label>
+            <textarea class="form-textarea" id="reviewText" placeholder="Share your experience with this translator..." required></textarea>
+          </div>
+
+          <!-- Captcha -->
+          <div class="form-group">
+            <label class="form-label">Anti-Bot Verification *</label>
+            <div class="captcha-group">
+              <span class="captcha-question" id="captchaQuestion">Loading...</span>
+              <div style="flex:1;">
+                <input type="text" class="form-input" id="captchaAnswer" placeholder="Your answer" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Submit Review</button>
+
+          <!-- Message -->
+          <div class="form-message" id="formMessage"></div>
+        </form>
+      </div>
+
+      <!-- Admin Note -->
+      <div class="card fade-in" style="margin-top: var(--space-2xl); text-align: center;">
+        <div class="card-icon" style="margin: 0 auto var(--space-lg);">🔐</div>
+        <h3>Review Moderation</h3>
+        <p style="max-width: 600px; margin: 0 auto;">
+          All submitted reviews are manually reviewed by our admin team before being published. This ensures quality, 
+          authenticity, and prevents spam. Reviews typically appear within 1–3 business days after submission.
+        </p>
+      </div>
+
+      <!-- Ad Slot -->
+      <div class="ad-slot ad-slot-banner">Advertisement Space</div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-title">⚖ Sworn Translators</h3>
+          <p class="footer-desc">The official directory for verified sworn translators registered in Sri Lanka. Serving individuals, embassies, and government agencies since 1977.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-subtitle">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="find-translator.html">Find a Translator</a></li>
+            <li><a href="document-samples.html">Document Samples</a></li>
+            <li><a href="verification.html">Verification Hub</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-subtitle">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-subtitle">Contact</h4>
+          <p class="footer-desc">For inquiries about the directory, please email:</p>
+          <a href="mailto:info@sworntranslators.lk" class="footer-email">info@sworntranslators.lk</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sri Lanka Sworn Translators Directory. All rights reserved.</p>
+        <p class="footer-disclaimer">This website is an informational directory. Inclusion does not constitute official government endorsement.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/translators.js"></script>
+  <script src="js/reviews.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initReviews();
+    });
+  </script>
+</body>
+</html>

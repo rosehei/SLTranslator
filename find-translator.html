@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search and find verified sworn translators in Sri Lanka. Filter by language pair, location, or registration number.">
+  <title>Find a Translator | Sri Lanka Sworn Translators Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">⚖</span>
+        <span class="logo-text">Sworn Translators<span class="logo-sub">Sri Lanka</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="find-translator.html">Find a Translator</a></li>
+        <li><a href="document-samples.html">Document Samples</a></li>
+        <li><a href="verification.html">Verification</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Find a Sworn Translator</h1>
+      <p>Search our directory of verified, court-registered translators across Sri Lanka. Filter by language pair, location, or name.</p>
+      <div class="gold-line"></div>
+    </div>
+  </div>
+
+  <!-- Directory Section -->
+  <section class="section" style="padding-top: var(--space-xl);">
+    <div class="container">
+
+      <!-- Search & Filters -->
+      <div class="directory-controls fade-in">
+        <div class="search-box">
+          <input type="text" id="directorySearch" placeholder="Search by name, registration number, or location..." autocomplete="off">
+        </div>
+        <select class="form-select filter-select" id="langFilter">
+          <option value="">All Languages</option>
+        </select>
+      </div>
+
+      <div class="results-count" id="resultsCount">Showing 10 of 10 translators</div>
+
+      <!-- Ad Slot -->
+      <div class="ad-slot ad-slot-banner">Advertisement Space</div>
+
+      <!-- Translator Cards Grid -->
+      <div class="translator-grid" id="translatorGrid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Ad Slot -->
+      <div class="ad-slot ad-slot-banner" style="margin-top: var(--space-2xl);">Advertisement Space</div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-title">⚖ Sworn Translators</h3>
+          <p class="footer-desc">The official directory for verified sworn translators registered in Sri Lanka. Serving individuals, embassies, and government agencies since 1977.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-subtitle">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="find-translator.html">Find a Translator</a></li>
+            <li><a href="document-samples.html">Document Samples</a></li>
+            <li><a href="verification.html">Verification Hub</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-subtitle">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-subtitle">Contact</h4>
+          <p class="footer-desc">For inquiries about the directory, please email:</p>
+          <a href="mailto:info@sworntranslators.lk" class="footer-email">info@sworntranslators.lk</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sri Lanka Sworn Translators Directory. All rights reserved.</p>
+        <p class="footer-disclaimer">This website is an informational directory. Inclusion does not constitute official government endorsement.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/translators.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initDirectory();
+
+      // Handle search query from home page
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get('q');
+      if (q) {
+        const searchInput = document.getElementById('directorySearch');
+        if (searchInput) {
+          searchInput.value = q;
+          searchInput.dispatchEvent(new Event('input'));
+        }
+      }
+    });
+  </script>
+</body>
+</html>

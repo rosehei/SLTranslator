@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Verify sworn translator registration numbers and learn about official translation standards and guidelines in Sri Lanka.">
+  <title>Verification Hub | Sri Lanka Sworn Translators Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">⚖</span>
+        <span class="logo-text">Sworn Translators<span class="logo-sub">Sri Lanka</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="find-translator.html">Find a Translator</a></li>
+        <li><a href="document-samples.html">Document Samples</a></li>
+        <li><a href="verification.html">Verification</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Verification Hub</h1>
+      <p>Verify translator credentials and explore official guidelines for sworn translations in Sri Lanka.</p>
+      <div class="gold-line"></div>
+    </div>
+  </div>
+
+  <!-- Verification Portal -->
+  <section class="section" style="padding-top: var(--space-xl);">
+    <div class="container">
+
+      <div class="verify-box fade-in">
+        <div style="font-size:2.5rem; margin-bottom:var(--space-md);">🛡️</div>
+        <h3>Verify Translator Registration</h3>
+        <p>Enter the translator's registration number to verify their credentials. Format: <code style="color:var(--gold); background:var(--gold-glow); padding:2px 6px; border-radius:4px;">YYYY/LL/XX/NNN</code></p>
+        <div class="verify-input-group">
+          <input type="text" class="form-input" id="verifyInput" placeholder="e.g., 1997/LL/PU/001" autocomplete="off">
+          <button class="btn btn-primary" id="verifyBtn">Verify</button>
+        </div>
+        <div class="verify-result" id="verifyResult"></div>
+      </div>
+
+      <!-- Ad Slot -->
+      <div class="ad-slot ad-slot-banner">Advertisement Space</div>
+
+      <!-- Guidelines Section -->
+      <div class="section-header fade-in">
+        <h2>Official Translation Guidelines</h2>
+        <p>Educational reference for government agencies, embassies, and institutions on how to evaluate and accept sworn translations.</p>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="accordion fade-in">
+
+        <!-- 1. Multi-page Integrity -->
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="acc-icon">📑</span> Multi-page Integrity &amp; Corner Seals</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p>Multi-page translated documents must be securely linked to prevent page substitution or tampering. This is achieved through <strong>corner seals</strong> — where the translator's official stamp is placed across the edges of overlapping pages.</p>
+              <ul>
+                <li>Each page overlap should bear a partial imprint of the translator's seal, so that when pages are placed together, the full seal is visible.</li>
+                <li>This method ensures that no page can be removed, replaced, or inserted without detection.</li>
+                <li>Agencies receiving multi-page translations should verify that corner seals are present and consistent across all page boundaries.</li>
+                <li>The seal imprint should be in ink (wet seal) — photocopied or digitally printed seals are not acceptable for official submissions.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Language Declaration -->
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="acc-icon">🌐</span> Language Declaration</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p>Every sworn translation must clearly state the <strong>translation direction</strong> on the first page of the document. This declaration establishes the source and target languages.</p>
+              <ul>
+                <li>Example: <em>"Translation from Sinhala to English"</em> or <em>"Translation from Tamil to English"</em>.</li>
+                <li>The declaration should be prominently placed — typically in a header or as the first line of the translated document.</li>
+                <li>Both the source language and target language must be explicitly named; ambiguous descriptions are not acceptable.</li>
+                <li>If the original document contains text in multiple languages, all source languages should be declared.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. End-of-Translation Marker -->
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="acc-icon">🏁</span> End-of-Translation Marker</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p>A clear <strong>end-of-translation marker</strong> must be placed at the conclusion of every translated document. This prevents unauthorized additions to the text.</p>
+              <ul>
+                <li>The standard marker is: <code style="color:var(--gold);">--- END OF TRANSLATION ---</code></li>
+                <li>This should appear after the last line of translated content and before the translator's declaration and signature.</li>
+                <li>No additional translated content should appear after this marker.</li>
+                <li>Agencies should verify this marker is present and that no text appears after it (aside from the translator's certification).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Translator Declaration -->
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="acc-icon">📜</span> Translator Declaration</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p>Every sworn translation must include a formal <strong>declaration of accuracy</strong> by the translator. This serves as a legal attestation of the translation's fidelity.</p>
+              <ul>
+                <li>The declaration typically reads: <em>"I, [Full Name], a sworn translator registered under number [Registration Number], hereby certify that this is a true and accurate translation of the original document."</em></li>
+                <li>The declaration must include the translator's full name, registration number, and date of translation.</li>
+                <li>This statement carries legal weight — any false or negligent declaration can result in professional sanctions.</li>
+                <li>The declaration should be followed by the translator's wet-ink signature and official stamp.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Signatures & Official Stamps -->
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="acc-icon">🔏</span> Signatures &amp; Official Stamps</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p>Sworn translations must bear the translator's <strong>wet-ink signature</strong> and <strong>official stamp</strong> to be considered valid for legal and administrative purposes.</p>
+              <ul>
+                <li><strong>Signature:</strong> Must be a wet-ink (physical) signature — digital or printed signatures are not accepted for sworn translations.</li>
+                <li><strong>Official Stamp:</strong> The translator's registered stamp should include their name, registration number, and the designation "Sworn Translator".</li>
+                <li>Some translations may also require a <strong>court stamp</strong> or endorsement from the relevant District Court.</li>
+                <li>Agencies should verify that the stamp details match the translator's registered information in this directory.</li>
+                <li>Photocopied stamps are not acceptable — only original imprints are valid.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Execution Dates -->
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="acc-icon">📅</span> Execution Dates</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <p>The <strong>date of execution</strong> (date the translation was completed) must be clearly noted on every sworn translation.</p>
+              <ul>
+                <li>The date should be written in a clear, unambiguous format (e.g., "15th October 2026" or "2026-10-15").</li>
+                <li>Some receiving authorities (embassies, government departments) may require translations to be completed within a specific timeframe of submission — typically within 3 to 6 months.</li>
+                <li>Translators should follow the date format requirements of the <strong>receiving authority</strong> when known.</li>
+                <li>The execution date must be consistent with the translator's signature and should not be pre-dated or post-dated.</li>
+                <li>For urgent translations, the date confirms the turnaround time and can be cross-referenced with the original document's issuance date.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Ad Slot -->
+      <div class="ad-slot ad-slot-banner" style="margin-top: var(--space-2xl);">Advertisement Space</div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-title">⚖ Sworn Translators</h3>
+          <p class="footer-desc">The official directory for verified sworn translators registered in Sri Lanka. Serving individuals, embassies, and government agencies since 1977.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-subtitle">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="find-translator.html">Find a Translator</a></li>
+            <li><a href="document-samples.html">Document Samples</a></li>
+            <li><a href="verification.html">Verification Hub</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-subtitle">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-subtitle">Contact</h4>
+          <p class="footer-desc">For inquiries about the directory, please email:</p>
+          <a href="mailto:info@sworntranslators.lk" class="footer-email">info@sworntranslators.lk</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sri Lanka Sworn Translators Directory. All rights reserved.</p>
+        <p class="footer-disclaimer">This website is an informational directory. Inclusion does not constitute official government endorsement.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/translators.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initVerification();
+    });
+
+    // Accordion toggle
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const body = item.querySelector('.accordion-body');
+      const isActive = item.classList.contains('active');
+
+      // Close all
+      document.querySelectorAll('.accordion-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.accordion-body').style.maxHeight = null;
+      });
+
+      // Open clicked (if it wasn't already open)
+      if (!isActive) {
+        item.classList.add('active');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    }
+  </script>
+</body>
+</html>
