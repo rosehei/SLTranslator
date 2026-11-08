@@ -9,6 +9,82 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .translator-picker { position: relative; }
+    .translator-suggestions {
+      position: absolute;
+      z-index: 30;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      max-height: 320px;
+      overflow-y: auto;
+      margin: 0;
+      padding: var(--space-xs);
+      list-style: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+    }
+    .translator-suggestions[hidden] { display: none; }
+    .translator-suggestion {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 0.6rem 0.75rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+    .translator-suggestion:hover,
+    .translator-suggestion[aria-selected="true"] {
+      background: var(--gold-glow);
+    }
+    .translator-suggestion-name {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .translator-suggestion-reg {
+      color: var(--gold);
+      font-family: var(--font-mono, monospace);
+      font-size: 0.8rem;
+    }
+    .translator-selected {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: 0.75rem 1rem;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+    .translator-selected[hidden] { display: none; }
+    .translator-selected-name {
+      color: var(--text-primary);
+      font-weight: 500;
+      overflow-wrap: anywhere;
+    }
+    .translator-change {
+      flex-shrink: 0;
+      padding: 0.35rem 0.75rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--gold);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .translator-change:hover { background: var(--gold-glow); }
+    .translator-hint {
+      min-height: 1.2em;
+      margin-top: var(--space-sm);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+    .translator-hint.error { color: var(--error); }
+  </style>
 </head>
 <body>
 
@@ -56,12 +132,12 @@
       <!-- Review Form -->
       <div class="section-header fade-in" style="margin-top: var(--space-3xl);">
         <h2>Submit a Review</h2>
-        <p>Share your experience to help others find the right translator. All reviews are moderated before publication.</p>
+        <p>Share your experience to help others find the right translator.</p>
         <div class="gold-line"></div>
       </div>
 
       <div class="review-form-card fade-in" style="max-width: 700px; margin: 0 auto;">
-        <form id="reviewForm">
+        <form id="reviewForm" novalidate>
 
           <!-- Author Name -->
           <div class="form-group">
@@ -71,20 +147,22 @@
 
           <!-- Translator Selection -->
           <div class="form-group">
-            <label class="form-label" for="reviewTranslator">Translator *</label>
-            <select class="form-select" id="reviewTranslator" required>
-              <option value="">Select a translator...</option>
-              <option value="P.M. Thilakarathne">P.M. Thilakarathne (1997/LL/PU/001)</option>
-              <option value="S.D. Cyril Sadanayake">S.D. Cyril Sadanayake (1977/LL/KL/001)</option>
-              <option value="D.A. Vincent">D.A. Vincent (1979/LL/CO/001)</option>
-              <option value="Premadasa D.">Premadasa D. (1983/LL/CO/026)</option>
-              <option value="Kurukulasuriya Patrick Peiris">Kurukulasuriya Patrick Peiris (1985/LL/CO/003)</option>
-              <option value="M.S.M Faiserdeen">M.S.M Faiserdeen (1989/LL/GA/001)</option>
-              <option value="L.A.L. Liyanaarachchi">L.A.L. Liyanaarachchi (1991/LL/CO/001)</option>
-              <option value="H.M.D.A. Herath">H.M.D.A. Herath (1992/LL/GA/001)</option>
-              <option value="Nadarajah Mohanamoorthy">Nadarajah Mohanamoorthy (1993/LL/BT/001)</option>
-              <option value="Navananthakumran N.">Navananthakumran N. (1993/LL/CO/008)</option>
-            </select>
+            <label class="form-label" for="translatorSearch">Translator *</label>
+            <div class="translator-picker" id="translatorPicker">
+              <input type="text" class="form-input" id="translatorSearch"
+                     placeholder="Search by name or registration number..." autocomplete="off"
+                     role="combobox" aria-autocomplete="list" aria-expanded="false"
+                     aria-controls="translatorSuggestions" aria-haspopup="listbox">
+              <ul class="translator-suggestions" id="translatorSuggestions"
+                  role="listbox" aria-label="Translator suggestions" hidden></ul>
+              <div class="translator-selected" id="translatorSelected" hidden>
+                <span class="translator-selected-name" id="translatorSelectedName"></span>
+                <button type="button" class="translator-change" id="translatorChange">Change</button>
+              </div>
+              <input type="hidden" id="reviewTranslatorReg" value="">
+              <input type="hidden" id="reviewTranslatorName" value="">
+            </div>
+            <p class="translator-hint" id="translatorHint" role="status" aria-live="polite"></p>
           </div>
 
           <!-- Star Rating -->
@@ -102,7 +180,7 @@
           <!-- Review Text -->
           <div class="form-group">
             <label class="form-label" for="reviewText">Your Review *</label>
-            <textarea class="form-textarea" id="reviewText" placeholder="Share your experience with this translator..." required></textarea>
+            <textarea class="form-textarea" id="reviewText" placeholder="Share your experience with this translator..." maxlength="1000" required></textarea>
           </div>
 
           <!-- Captcha -->
@@ -124,16 +202,6 @@
         </form>
       </div>
 
-      <!-- Admin Note -->
-      <div class="card fade-in" style="margin-top: var(--space-2xl); text-align: center;">
-        <div class="card-icon" style="margin: 0 auto var(--space-lg);">🔐</div>
-        <h3>Review Moderation</h3>
-        <p style="max-width: 600px; margin: 0 auto;">
-          All submitted reviews are manually reviewed by our admin team before being published. This ensures quality, 
-          authenticity, and prevents spam. Reviews typically appear within 1–3 business days after submission.
-        </p>
-      </div>
-
       <!-- Ad Slot -->
       <div class="ad-slot ad-slot-banner">Advertisement Space</div>
 
@@ -146,7 +214,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <h3 class="footer-title">⚖ Sworn Translators</h3>
-          <p class="footer-desc">The official directory for verified sworn translators registered in Sri Lanka. Serving individuals, embassies, and government agencies since 1977.</p>
+          <p class="footer-desc">The official directory for verified sworn translators registered in Sri Lanka. Serving individuals, embassies, and government agencies.</p>
         </div>
         <div class="footer-col">
           <h4 class="footer-subtitle">Quick Links</h4>

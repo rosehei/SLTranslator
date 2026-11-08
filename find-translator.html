@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Search and find verified sworn translators in Sri Lanka. Filter by language pair, location, or registration number.">
+  <meta name="description" content="Search and find verified sworn translators in Sri Lanka. Filter by language, location, or registration number.">
   <title>Find a Translator | Sri Lanka Sworn Translators Directory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,7 @@
   <div class="page-header">
     <div class="container">
       <h1>Find a Sworn Translator</h1>
-      <p>Search our directory of verified, court-registered translators across Sri Lanka. Filter by language pair, location, or name.</p>
+      <p>Search our directory of verified, court-registered translators across Sri Lanka. Filter by language, location, or name.</p>
       <div class="gold-line"></div>
     </div>
   </div>
@@ -48,14 +48,14 @@
       <!-- Search & Filters -->
       <div class="directory-controls fade-in">
         <div class="search-box">
-          <input type="text" id="directorySearch" placeholder="Search by name, registration number, or location..." autocomplete="off">
+          <input type="text" id="directorySearch" placeholder="Search by name, registration number, language, or location..." autocomplete="off" aria-label="Search translators">
         </div>
-        <select class="form-select filter-select" id="langFilter">
+        <select class="form-select filter-select" id="langFilter" aria-label="Filter by language">
           <option value="">All Languages</option>
         </select>
       </div>
 
-      <div class="results-count" id="resultsCount">Showing 10 of 10 translators</div>
+      <div class="results-count" id="resultsCount" role="status" aria-live="polite">Loading translators…</div>
 
       <!-- Ad Slot -->
       <div class="ad-slot ad-slot-banner">Advertisement Space</div>
@@ -64,6 +64,9 @@
       <div class="translator-grid" id="translatorGrid">
         <!-- Rendered by JS -->
       </div>
+
+      <!-- Pagination -->
+      <nav class="pagination" id="pagination" aria-label="Translator results pages"></nav>
 
       <!-- Ad Slot -->
       <div class="ad-slot ad-slot-banner" style="margin-top: var(--space-2xl);">Advertisement Space</div>
@@ -77,7 +80,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <h3 class="footer-title">⚖ Sworn Translators</h3>
-          <p class="footer-desc">The official directory for verified sworn translators registered in Sri Lanka. Serving individuals, embassies, and government agencies since 1977.</p>
+          <p class="footer-desc">The official directory for verified sworn translators registered in Sri Lanka. Serving individuals, embassies, and government agencies.</p>
         </div>
         <div class="footer-col">
           <h4 class="footer-subtitle">Quick Links</h4>
@@ -112,21 +115,5 @@
 
   <script src="js/main.js"></script>
   <script src="js/translators.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      initDirectory();
-
-      // Handle search query from home page
-      const params = new URLSearchParams(window.location.search);
-      const q = params.get('q');
-      if (q) {
-        const searchInput = document.getElementById('directorySearch');
-        if (searchInput) {
-          searchInput.value = q;
-          searchInput.dispatchEvent(new Event('input'));
-        }
-      }
-    });
-  </script>
 </body>
 </html>

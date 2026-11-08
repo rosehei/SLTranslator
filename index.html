@@ -50,16 +50,16 @@
       </form>
       <div class="hero-stats">
         <div class="hero-stat">
-          <span class="stat-number">10+</span>
+          <span class="stat-number" id="statTranslators" data-start="2000" data-target="3025" data-suffix="+">3,025+</span>
           <span class="stat-label">Registered Translators</span>
         </div>
         <div class="hero-stat">
-          <span class="stat-number">6</span>
-          <span class="stat-label">Language Pairs</span>
+          <span class="stat-number" id="statLanguages" data-start="10" data-target="16">16</span>
+          <span class="stat-label">Languages</span>
         </div>
-        <div class="hero-stat">
-          <span class="stat-number">45+</span>
-          <span class="stat-label">Years of Service</span>
+        <div class="hero-stat hero-stat-clients">
+          <span class="stat-number" id="statClients" data-start="20000" data-target="24561">24,561</span>
+          <span class="stat-label">clients have already found their translator through this website</span>
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@
         <div class="card fade-in fade-in-delay-1">
           <div class="card-icon">🔍</div>
           <h3>Find a Translator</h3>
-          <p>Search our directory of verified sworn translators. Filter by language combination, location, or name to find your ideal professional.</p>
+          <p>Search our directory of verified sworn translators. Filter by language, location, or name to find your ideal professional.</p>
           <a href="find-translator.html" class="card-link">Browse Directory</a>
         </div>
 
@@ -124,7 +124,7 @@
         <div class="card fade-in fade-in-delay-1" style="text-align:center; padding: var(--space-xl);">
           <div style="font-size:2rem; margin-bottom:var(--space-md);">🌐</div>
           <h4>Multiple Languages</h4>
-          <p style="font-size:0.9rem; margin-bottom:0;">Sinhala, Tamil, and English — all major language pairs covered.</p>
+          <p style="font-size:0.9rem; margin-bottom:0;">Sinhala, Tamil, English, and more — all major languages covered.</p>
         </div>
         <div class="card fade-in fade-in-delay-2" style="text-align:center; padding: var(--space-xl);">
           <div style="font-size:2rem; margin-bottom:var(--space-md);">🏛️</div>
@@ -151,7 +151,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <h3 class="footer-title">⚖ Sworn Translators</h3>
-          <p class="footer-desc">The official directory for verified sworn translators registered in Sri Lanka. Serving individuals, embassies, and government agencies since 1977.</p>
+          <p class="footer-desc">The official directory for verified sworn translators registered in Sri Lanka. Serving individuals, embassies, and government agencies.</p>
         </div>
         <div class="footer-col">
           <h4 class="footer-subtitle">Quick Links</h4>
@@ -184,6 +184,7 @@
     </div>
   </footer>
 
+  <script src="js/translators.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
