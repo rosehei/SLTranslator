@@ -45,12 +45,7 @@ Build the initial database/table using these records:
 | 9 | 1993/LL/BT/001 | Nadarajah Mohanamoorthy | 50,8th Cross Street,Kulavadi,Batticaloa | 773042894 | Sinhala - English | - |
 | 10 | 1993/LL/CO/008 | Navananthakumran.N. | 6/025, Galpotha Street,Colombo 13 | 0775280700 | Sinhala - English | English - Tamil |
 
-## 4. User Review Section & Moderation
-- **User Reviews:** Allow users to submit feedback and experiences regarding translators.
-- **Anti-Bot Filtering:** Implement a smart validation filter (e.g., simple math captcha or submission rate-limiting) to block automated bot spam.
-- **Admin Control Panel Concept:** Include placeholder structure/logic indicating that reviews require manual approval or can be moderated/deleted by the site administrator.
-
-## 5. UI/UX Design Requirements
+## 4. UI/UX Design Requirements
 - Modern, trustworthy, and accessible layout suitable for official state services and general public use.
 - Fully responsive design (mobile-friendly, tablet, desktop).
 - Fast-loading lightweight CSS styles optimized for Cloudflare CDN caching and AdSense display slots.
