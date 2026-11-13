@@ -26989,6 +26989,7 @@ const TRANSLATORS = [
     "regNumber": "2019/BL/KL/001",
     "name": "B.M.D.N.S.JAYASINGHE",
     "address": "Weekanda, Morapitiya.",
+    "tel": "0703516842",
     "district": "Kalutara",
     "districtCode": "KL",
     "languages": [
