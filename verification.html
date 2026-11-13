@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0F5C4D">
   <meta name="description" content="Verify sworn translator registration numbers and learn about official translation standards and guidelines in Sri Lanka.">
   <title>Verification Hub | Sri Lanka Sworn Translators Directory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +17,7 @@
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-logo">
-        <span class="logo-icon">⚖</span>
+        <img class="logo-icon" src="Images/Logo/sl-translators-logo.svg" alt="logo">
         <span class="logo-text">Sworn Translators<span class="logo-sub">Sri Lanka</span></span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -37,7 +38,7 @@
     <div class="container">
       <h1>Verification Hub</h1>
       <p>Verify translator credentials and explore official guidelines for sworn translations in Sri Lanka.</p>
-      <div class="gold-line"></div>
+      <div class="accent-line"></div>
     </div>
   </div>
 
@@ -48,7 +49,7 @@
       <div class="verify-box fade-in">
         <div style="font-size:2.5rem; margin-bottom:var(--space-md);">🛡️</div>
         <h3>Verify Translator Registration</h3>
-        <p>Enter the translator's registration number to verify their credentials. Format: <code style="color:var(--gold); background:var(--gold-glow); padding:2px 6px; border-radius:4px;">YYYY/LL/XX/NNN</code></p>
+        <p>Enter the translator's registration number to verify their credentials. Format: <code style="color:var(--primary); background:var(--accent-soft); padding:2px 6px; border-radius:4px;">YYYY/LL/XX/NNN</code></p>
         <div class="verify-input-group">
           <input type="text" class="form-input" id="verifyInput" placeholder="e.g., 1997/LL/PU/001" autocomplete="off">
           <button class="btn btn-primary" id="verifyBtn">Verify</button>
@@ -63,7 +64,7 @@
       <div class="section-header fade-in">
         <h2>Official Translation Guidelines</h2>
         <p>Educational reference for government agencies, embassies, and institutions on how to evaluate and accept sworn translations.</p>
-        <div class="gold-line"></div>
+        <div class="accent-line"></div>
       </div>
 
       <div class="accordion fade-in">
@@ -116,7 +117,7 @@
             <div class="accordion-body-inner">
               <p>A clear <strong>end-of-translation marker</strong> must be placed at the conclusion of every translated document. This prevents unauthorized additions to the text.</p>
               <ul>
-                <li>The standard marker is: <code style="color:var(--gold);">--- END OF TRANSLATION ---</code></li>
+                <li>The standard marker is: <code style="color:var(--primary);">--- END OF TRANSLATION ---</code></li>
                 <li>This should appear after the last line of translated content and before the translator's declaration and signature.</li>
                 <li>No additional translated content should appear after this marker.</li>
                 <li>Agencies should verify this marker is present and that no text appears after it (aside from the translator's certification).</li>

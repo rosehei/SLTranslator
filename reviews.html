@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0F5C4D">
   <meta name="description" content="Read reviews and share your experience with sworn translators in Sri Lanka. Verified feedback to help you choose the right translator.">
   <title>Reviews | Sri Lanka Sworn Translators Directory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,14 +39,14 @@
     }
     .translator-suggestion:hover,
     .translator-suggestion[aria-selected="true"] {
-      background: var(--gold-glow);
+      background: var(--accent-soft);
     }
     .translator-suggestion-name {
       color: var(--text-primary);
       font-weight: 500;
     }
     .translator-suggestion-reg {
-      color: var(--gold);
+      color: var(--primary);
       font-family: var(--font-mono, monospace);
       font-size: 0.8rem;
     }
@@ -71,12 +72,12 @@
       background: transparent;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      color: var(--gold);
+      color: var(--primary);
       font-family: var(--font-body);
       font-size: 0.85rem;
       cursor: pointer;
     }
-    .translator-change:hover { background: var(--gold-glow); }
+    .translator-change:hover { background: var(--accent-soft); }
     .translator-hint {
       min-height: 1.2em;
       margin-top: var(--space-sm);
@@ -92,7 +93,7 @@
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="index.html" class="nav-logo">
-        <span class="logo-icon">⚖</span>
+        <img class="logo-icon" src="Images/Logo/sl-translators-logo.svg" alt="logo">
         <span class="logo-text">Sworn Translators<span class="logo-sub">Sri Lanka</span></span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -113,7 +114,7 @@
     <div class="container">
       <h1>Translator Reviews</h1>
       <p>Read verified reviews from people who have used sworn translation services in Sri Lanka. Share your own experience to help others.</p>
-      <div class="gold-line"></div>
+      <div class="accent-line"></div>
     </div>
   </div>
 
@@ -133,7 +134,7 @@
       <div class="section-header fade-in" style="margin-top: var(--space-3xl);">
         <h2>Submit a Review</h2>
         <p>Share your experience to help others find the right translator.</p>
-        <div class="gold-line"></div>
+        <div class="accent-line"></div>
       </div>
 
       <div class="review-form-card fade-in" style="max-width: 700px; margin: 0 auto;">
@@ -144,6 +145,8 @@
             <label class="form-label" for="reviewAuthor">Your Name *</label>
             <input type="text" class="form-input" id="reviewAuthor" placeholder="Enter your full name" required>
           </div>
+
+          
 
           <!-- Translator Selection -->
           <div class="form-group">
