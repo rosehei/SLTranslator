@@ -205,8 +205,9 @@ p {
 }
 
 .logo-icon {
-  font-size: 1.75rem;
-  filter: drop-shadow(0 0 8px rgba(201, 160, 78, 0.4));
+  width: 2.5rem;
+  height: 2.5rem;
+  /* filter: drop-shadow(0 0 8px rgba(201, 160, 78, 0.4)); */
 }
 
 .logo-text {
@@ -1750,6 +1751,11 @@ p {
   .hero {
     padding-left: var(--space-md);
     padding-right: var(--space-md);
+  }
+
+  .logo-icon{
+    height: 1.875rem;
+    width: 1.875rem;
   }
 
   .hero-badge {
